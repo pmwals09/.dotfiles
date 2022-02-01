@@ -116,7 +116,7 @@ alias gs="git status"
 alias vim="nvim"
 alias tmux="TERM=screen-256color-bce tmux"
 
-export EDITOR="/usr/local/bin/code --wait"
+export EDITOR="nvim"
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
