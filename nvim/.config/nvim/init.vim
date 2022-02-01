@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'ayu-theme/ayu-vim'
+  Plug 'tpope/vim-surround'
 call plug#end()
 
 " syntax highlighting/colors
