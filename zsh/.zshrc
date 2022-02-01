@@ -104,22 +104,28 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="nvim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Config updates
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias vimconfig="nvim ~/.config/nvim/init.vim"
+
+# Shortcuts
 alias mrm="bundle exec rake db:migrate && bundle exec rake db:rollback && bundle exec rake db:migrate"
 alias t="/usr/local/bin/todo.sh -d /Users/patrickwalsh/Nextcloud/todo/.todo.cfg"
 alias la="ls -a"
 alias ll="ls -al"
 alias notes="nvim ~/Nextcloud/Documents/Notes"
 alias gs="git status"
+
+# Remaps/env setting
 alias vim="nvim"
 alias tmux="TERM=screen-256color-bce tmux"
 
 export EDITOR="nvim"
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/opt/zsh-syntax-highlighting 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -127,11 +133,14 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+source ~/.nvm/nvm.sh
 [ -d "$HOME/Library/Android/sdk" ] && ANDROID_SDK=$HOME/Library/Android/sdk || ANDROID_SDK=$HOME/Android/Sdk
 echo "export ANDROID_SDK=$ANDROID_SDK" >> ~/`[[ $SHELL == *"zsh" ]] && echo ".zshenv" || echo ".bash_profile"`
 echo "export PATH=$HOME/Library/Android/sdk/platform-tools:\$PATH" >> ~/`[[ $SHELL == *"zsh" ]] && echo ".zshenv" || echo ".bash_profile"`
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PYENV_ROOT="$HOME"/.pyenv
+export PATH="$PYENV_ROOT"/bin:"$PATH"
 eval "$(pyenv init -)"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
