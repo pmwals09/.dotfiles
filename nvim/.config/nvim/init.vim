@@ -28,6 +28,10 @@ set synmaxcol=200
 set list
 set autochdir
 set colorcolumn=80
+set ignorecase
+set smartcase
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
 
 " Plugins
 call plug#begin('~/.vim/plugged')
