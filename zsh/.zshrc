@@ -120,7 +120,7 @@ alias gs="git status"
 
 # Remaps/env setting
 alias vim="nvim"
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color tmux"
 
 export EDITOR="nvim"
 source /usr/local/share/chruby/chruby.sh
