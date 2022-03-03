@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+tmux new-session -s odin -n base -c ~/Documents/Code/odin-project/ -d
+tmux send-keys -t odin:base.0 'vim .' C-m
+tmux split-window -v -p 35 -c ~/Documents/Code/odin-project -t odin:base.0
+tmux select-pane -t odin:base.0
+tmux a -t odin
