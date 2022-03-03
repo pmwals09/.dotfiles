@@ -41,7 +41,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround' " surround with brackets, etc.
   Plug 'sheerun/vim-polyglot' " syntax highlighting
   Plug 'dense-analysis/ale' " linting
-  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive' " git integration
+  Plug 'OmniSharp/omnisharp-vim' " C# development
 
   " Available CoC options: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
   Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
@@ -70,17 +71,30 @@ colorscheme ayu
 
 " Remaps
 let mapleader = " " 
+
+" File navigation
 nnoremap <leader>pv :Vex<CR>
 nnoremap <leader>pe :Ex<CR>
-nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>pf :Files<CR>
+
+" In-file navigation
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap <C-F> gg=G
+
+" Config quick source
+nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
+
+" quicklist navigation
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
+
+" Copy and paste is hard
 vnoremap <leader>p "_dP
 vnoremap <leader>y "*y
 nnoremap <leader>y "*y
 nnoremap <leader>Y gg"+yG
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-nnoremap <C-F> gg=G
+
+" fugitive HOT ROUTE
+nmap <leader>gs :G<CR>
