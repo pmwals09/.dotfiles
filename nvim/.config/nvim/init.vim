@@ -42,24 +42,26 @@ call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot' " syntax highlighting
   Plug 'dense-analysis/ale' " linting
   Plug 'tpope/vim-fugitive'
+  Plug 'townk/vim-autoclose'
+  Plug 'vim-ruby/vim-ruby'
 
   " Available CoC options: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
-  Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'antonk52/coc-cssmodules', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'voldikss/coc-dot-complete', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'neoclide/coc-emmet', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'weirongxu/coc-explorer', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-  Plug 'neoclide/coc-git', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'coc-extensions/coc-omnisharp'
-  Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
+  " Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'antonk52/coc-cssmodules', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'voldikss/coc-dot-complete', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'neoclide/coc-emmet', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'weirongxu/coc-explorer', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+  " Plug 'neoclide/coc-git', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'coc-extensions/coc-omnisharp'
+  " Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
+  " Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
 " syntax highlighting/colors
@@ -67,6 +69,17 @@ syntax on
 set termguicolors
 let ayucolor="dark"
 colorscheme ayu
+
+" ALE config
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'css': ['prettier'],
+\   'ruby': ['rubocop'],
+\}
+let g:ale_fix_on_save = 0
+
+" rubocop config
+let g:ruby_rubocop_options = '--config ~/.config/nvim/rubocop.yml --force-exclusion'
 
 " Remaps
 let mapleader = " " 

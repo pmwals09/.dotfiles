@@ -123,8 +123,8 @@ alias vim="nvim"
 alias tmux="TERM=screen-256color tmux"
 
 export EDITOR="nvim"
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+# source /usr/local/share/chruby/chruby.sh
+# source /usr/local/share/chruby/auto.sh
 source /usr/local/opt/zsh-syntax-highlighting 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -147,3 +147,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
