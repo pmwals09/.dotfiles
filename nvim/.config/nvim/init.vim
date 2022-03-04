@@ -3,7 +3,7 @@ set nocompatible
 filetype plugin indent on " Load plugins according to detected filetype
 
 set scrolloff=8 " file will scroll to follow cursor
-set number " add line numbers to buffer 
+set number " add line numbers to buffer
 set relativenumber " make line numbers relative to current line
 set tabstop=2 " default to 2-space tabs
 set softtabstop=2 " default to 2-space tabs
@@ -44,6 +44,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'townk/vim-autoclose'
   Plug 'vim-ruby/vim-ruby'
+  Plug 'OmniSharp/omnisharp-vim' " C# development
+  Plug 'vim-airline/vim-airline' " Pretty colors
 
   " Available CoC options: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
   " Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
@@ -82,18 +84,81 @@ let g:ale_fix_on_save = 0
 let g:ruby_rubocop_options = '--config ~/.config/nvim/rubocop.yml --force-exclusion'
 
 " Remaps
-let mapleader = " " 
+let mapleader = " "
+
+" File navigation
 nnoremap <leader>pv :Vex<CR>
 nnoremap <leader>pe :Ex<CR>
-nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>pf :Files<CR>
+
+" In-file navigation
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap <C-F> gg=G
+
+" Config quick source
+nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
+
+" quicklist navigation
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
+
+" Copy and paste is hard
 vnoremap <leader>p "_dP
 vnoremap <leader>y "*y
 nnoremap <leader>y "*y
 nnoremap <leader>Y gg"+yG
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-nnoremap <C-F> gg=G
+
+" fugitive HOT ROUTE
+nmap <leader>gs :G<CR>
+
+" Airline config
+let g:airline_extensions = []
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.colnr = ' ㏇:'
+let g:airline_symbols.colnr = ' ℅:'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = ' ␊:'
+let g:airline_symbols.linenr = ' ␤:'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' :'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty='⚡'
+
+" old vim-powerline symbols
+" let g:airline_left_sep = '⮀'
+" let g:airline_left_alt_sep = '⮁'
+" let g:airline_right_sep = '⮂'
+" let g:airline_right_alt_sep = '⮃'
+" let g:airline_symbols.branch = '⭠'
+" let g:airline_symbols.readonly = '⭤'
+" let g:airline_symbols.linenr = '⭡'
