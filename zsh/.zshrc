@@ -148,4 +148,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
+export RBENV_VERSION=3.1.1

@@ -46,6 +46,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-ruby/vim-ruby'
   Plug 'OmniSharp/omnisharp-vim' " C# development
   Plug 'vim-airline/vim-airline' " Pretty colors
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'Pocco81/DAPInstall.nvim'
+  Plug 'rcarriga/nvim-dap-ui'
+  Plug 'rcarriga/vim-ultest'
+  Plug 'theHamsta/nvim-dap-virtual-text'
 
   " Available CoC options: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
   " Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
@@ -113,6 +118,37 @@ nnoremap <leader>Y gg"+yG
 " fugitive HOT ROUTE
 nmap <leader>gs :G<CR>
 
+" Debugging
+autocmd VimEnter * lua require('dapui').setup()
+nnoremap <F4> :lua require('dapui').toggle()<CR>
+nnoremap <F5> :lua require('dap').toggle_breakpoint()<CR>
+nnoremap <F9> :lua require('dap').continue()<CR>
+ 
+nnoremap <F1> :lua require('dap').step_over()<CR>
+nnoremap <F2> :lua require('dap').step_into()<CR>
+nnoremap <F3> :lua require('dap').step_out()<CR>
+ 
+nnoremap <leader>dsc :lua require('dap').continue()<CR>
+nnoremap <leader>dsv :lua require('dap').step_over()<CR>
+nnoremap <leader>dsi :lua require('dap').step_into()<CR>
+nnoremap <leader>dso :lua require('dap').step_out()<CR>
+ 
+nnoremap <leader>dhh :lua require('dap.ui.variables').hover()<CR>
+vnoremap <leader>dhv :lua require('dap.ui.variables').visual_hover()<CR>
+ 
+nnoremap <leader>duh :lua require('dap.ui.widgets').hover()<CR>
+nnoremap <leader>duf :lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>
+ 
+nnoremap <leader>dro :lua require('dap').repl.open()<CR>
+nnoremap <leader>drl :lua require('dap').repl.run_last()<CR>
+ 
+nnoremap <leader>dbc :lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <leader>dbm :lua require('dap').set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>
+nnoremap <leader>dbt :lua require('dap').toggle_breakpoint()<CR>
+ 
+nnoremap <leader>dc :lua require('dap.ui.variables').scopes()<CR>
+nnoremap <leader>di :lua require('dapui').toggle()<CR>
+
 " Airline config
 let g:airline_extensions = []
 let g:airline_powerline_fonts = 1
@@ -162,3 +198,4 @@ let g:airline_symbols.dirty='⚡'
 " let g:airline_symbols.branch = '⭠'
 " let g:airline_symbols.readonly = '⭤'
 " let g:airline_symbols.linenr = '⭡'
+"
