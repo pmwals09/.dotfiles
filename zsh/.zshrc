@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 
 # Config updates
+export EDITOR="nvim"
+
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vimconfig="nvim ~/.config/nvim/init.vim"
@@ -115,14 +117,13 @@ alias mrm="bundle exec rake db:migrate && bundle exec rake db:rollback && bundle
 alias t="/usr/local/bin/todo.sh -d /Users/patrickwalsh/Nextcloud/todo/.todo.cfg"
 alias la="ls -a"
 alias ll="ls -al"
-alias notes="nvim ~/Nextcloud/Documents/Notes"
+alias notes="nvim $NOTES_DIR"
 alias gs="git status"
 
 # Remaps/env setting
 alias vim="nvim"
 alias tmux="TERM=screen-256color tmux"
 
-export EDITOR="nvim"
 # source /usr/local/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
 source /usr/local/opt/zsh-syntax-highlighting 
@@ -131,6 +132,7 @@ source /usr/local/opt/zsh-syntax-highlighting
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export NVM_DIR="$HOME/.nvm"
+export NOTES_DIR="$HOME/Documents/Notes"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 source ~/.nvm/nvm.sh
