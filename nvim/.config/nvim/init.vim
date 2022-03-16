@@ -37,7 +37,8 @@ let g:netrw_banner = 0
 call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
   Plug 'junegunn/fzf.vim' " fuzzy finder
-  Plug 'ayu-theme/ayu-vim' " nicer-looking theme
+  " Plug 'ayu-theme/ayu-vim' " nicer-looking theme
+  Plug 'morhetz/gruvbox' " nicer-looking theme
   Plug 'tpope/vim-surround' " surround with brackets, etc.
   Plug 'sheerun/vim-polyglot' " syntax highlighting
   Plug 'dense-analysis/ale' " linting
@@ -66,7 +67,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
   " Plug 'neoclide/coc-git', { 'do': 'yarn install --frozen-lockfile' }
   " Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
-  " Plug 'coc-extensions/coc-omnisharp'
+  Plug 'coc-extensions/coc-omnisharp' " C-sharp
   " Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
   " Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
@@ -74,8 +75,10 @@ call plug#end()
 " syntax highlighting/colors
 syntax on
 set termguicolors
-let ayucolor="dark"
-colorscheme ayu
+" let ayucolor="dark"
+" colorscheme ayu
+autocmd vimenter * ++nested colorscheme gruvbox
+" colorscheme gruvbox
 
 " ALE config
 let g:ale_fixers = {
