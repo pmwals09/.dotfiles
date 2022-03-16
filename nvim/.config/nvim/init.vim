@@ -122,6 +122,14 @@ nmap <leader>gs :G<CR>
 nmap <leader>rn <Plug>(coc-rename)
 
 " Debugging
+lua << EOF
+local dap_install = require("dap-install")
+
+dap_install.setup({
+	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
+})
+EOF
+
 autocmd VimEnter * lua require('dapui').setup()
 nnoremap <F4> :lua require('dapui').toggle()<CR>
 nnoremap <F5> :lua require('dap').toggle_breakpoint()<CR>
