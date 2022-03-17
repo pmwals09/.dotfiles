@@ -52,6 +52,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'rcarriga/vim-ultest'
   Plug 'theHamsta/nvim-dap-virtual-text'
+  Plug 'vim-test/vim-test'
 
   " Available CoC options: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
   Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
@@ -163,6 +164,12 @@ nnoremap <leader>dbt :lua require('dap').toggle_breakpoint()<CR>
 nnoremap <leader>dc :lua require('dap.ui.variables').scopes()<CR>
 nnoremap <leader>di :lua require('dapui').toggle()<CR>
 
+" Vim Test config
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 " Airline config
 let g:airline_extensions = []
 let g:airline_powerline_fonts = 1
