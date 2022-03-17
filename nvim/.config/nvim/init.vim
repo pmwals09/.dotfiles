@@ -53,6 +53,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rcarriga/vim-ultest'
   Plug 'theHamsta/nvim-dap-virtual-text'
   Plug 'vim-test/vim-test'
+  Plug 'airblade/vim-gitgutter'
 
   " Available CoC options: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
   Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
