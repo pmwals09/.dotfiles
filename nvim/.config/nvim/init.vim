@@ -63,7 +63,7 @@ call plug#begin('~/.vim/plugged')
   " Plug 'antonk52/coc-cssmodules', { 'do': 'yarn install --frozen-lockfile' }
   " Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
   " Plug 'voldikss/coc-dot-complete', { 'do': 'yarn install --frozen-lockfile' }
-  " Plug 'neoclide/coc-emmet', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-emmet', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'weirongxu/coc-explorer', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
@@ -71,7 +71,7 @@ call plug#begin('~/.vim/plugged')
   " Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'coc-extensions/coc-omnisharp' " C-sharp
   " Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
-  " Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
 " syntax highlighting/colors
