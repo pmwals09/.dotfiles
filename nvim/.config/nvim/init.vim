@@ -54,7 +54,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'theHamsta/nvim-dap-virtual-text'
   Plug 'vim-test/vim-test'
   Plug 'airblade/vim-gitgutter'
-
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'nickspoons/vim-sharpenup'
+  Plug 'honza/vim-snippets'
+  Plug 'SirVer/ultisnips'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " Available CoC options: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
   Plug 'neoclide/coc.nvim', { 'branch': 'release' } " code completion
   Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
@@ -71,7 +75,6 @@ call plug#begin('~/.vim/plugged')
   " Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'coc-extensions/coc-omnisharp' " C-sharp
   " Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
 " syntax highlighting/colors
@@ -82,13 +85,48 @@ set termguicolors
 autocmd vimenter * ++nested colorscheme gruvbox
 " colorscheme gruvbox
 
+" Snippets config
+let g:deoplete#enable_at_startup = 1
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+
 " ALE config
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'css': ['prettier'],
 \   'ruby': ['rubocop'],
 \}
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
+let g:ale_sign_info = '·'
+let g:ale_sign_style_error = '·'
+let g:ale_sign_style_warning = '·'
 let g:ale_fix_on_save = 0
+
+" Asyncomplete config
+let g:asyncomplete_auto_popup = 0
+let g:asyncomplete_auto_completeopt = 0
+
+" Sharpenup config
+let g:sharpenup_map_prefix = '<Space>os'
+
+" OmniSharp config
+let g:OmniSharp_popup_position = 'peek'
+let g:OmniSharp_popup_options = {
+  \ 'winhl': 'Normal:NormalFloat'
+  \}
+let g:OmniSharp_popup_mappings = {
+\ 'sigNext': '<C-n>',
+\ 'sigPrev': '<C-p>',
+\ 'pageDown': ['<C-f>', '<PageDown>'],
+\ 'pageUp': ['<C-b>', '<PageUp>']
+\}
+let g:OmniSharp_highlight_groups = {
+\ 'ExcludedCode': 'NonText'
+\}
+" let g:OmniSharp_want_snippet = 1
 
 " rubocop config
 let g:ruby_rubocop_options = '--config ~/.config/nvim/rubocop.yml --force-exclusion'
