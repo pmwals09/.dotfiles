@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+ignore_branches="dev|master|main"
+
+print_usage() {
+  echo "git-clean-merged - remove merged in branches excepting those specified"
+  echo " "
+  echo "Deletes local branches that have been merged in to clean up git. This"
+  echo "is relatively safe since it's only deleting local branches."
+  echo " "
+  echo "git-clean-merged [options] [arguments]"
+  echo " "
+  echo "-h     Show brief help"
+  echo "-i     Specify a branch or branches to ignore when deleting"
+  echo "       Automatically ignores branches named dev, main, and master"
+  echo "       Passing in multiple branch names is achieved by repeating use"
+  echo "       of the -i flag, or by wrapping the list of branch names in"
+  echo "       quotes."
+}
+
+while getopts 'hi:' flag; do
+  case "${flag}" in
+    h)
+      print_usage
+      exit 0
+      ;;
+    i)
+      ignore_branches+="|${OPTARG/ /|}"
+      ;;
+    *)
+      print_usage
+      exit 1
+      ;;
+  esac
+done
+
+git branch --merged | rg -v $ignore_branches | xargs git branch -d 

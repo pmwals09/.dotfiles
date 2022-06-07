@@ -46,6 +46,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'townk/vim-autoclose'
   Plug 'vim-ruby/vim-ruby'
   Plug 'OmniSharp/omnisharp-vim' " C# development
+  " Plug 'hoob3rt/lualine.vim' " Statusline
   Plug 'vim-airline/vim-airline' " Pretty colors
   Plug 'mfussenegger/nvim-dap'
   Plug 'Pocco81/DAPInstall.nvim'
