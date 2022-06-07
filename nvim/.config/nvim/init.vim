@@ -74,6 +74,7 @@ call plug#begin('~/.vim/plugged')
   " Plug 'neoclide/coc-git', { 'do': 'yarn install --frozen-lockfile' }
   " Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'coc-extensions/coc-omnisharp' " C-sharp
+  Plug 'neoclide/coc-java' " Java
   " Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
 call plug#end()
 
