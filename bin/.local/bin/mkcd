@@ -1,0 +1,9 @@
+#!/usr/bin/sh bash
+
+path=$1
+
+mkcd() {
+  mkdir $1 && cd $1
+}
+
+mkcd
