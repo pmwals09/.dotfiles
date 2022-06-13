@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+project=$1
+tlp() {
+  task list proj:$project
+}
+
+tlp

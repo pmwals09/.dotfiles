@@ -26,7 +26,7 @@ set cursorline
 set report=0
 set synmaxcol=200
 set list
-set autochdir
+" set autochdir
 set colorcolumn=80
 set ignorecase
 set smartcase
@@ -44,6 +44,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale' " linting
   Plug 'tpope/vim-fugitive'
   Plug 'townk/vim-autoclose'
+  Plug 'vimwiki/vimwiki'
+
+  " Language servers, linters, etc.
   Plug 'vim-ruby/vim-ruby'
   Plug 'OmniSharp/omnisharp-vim' " C# development
   " Plug 'hoob3rt/lualine.vim' " Statusline
@@ -131,6 +134,16 @@ let g:OmniSharp_highlight_groups = {
 
 " rubocop config
 let g:ruby_rubocop_options = '--config ~/.config/nvim/rubocop.yml --force-exclusion'
+
+" vimwiki config
+let wiki = {}
+let wiki.path = '~/vimwiki/'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.md'
+let wiki.auto_tags = 1
+let g:vimwiki_global_ext = 0
+let g:vimwiki_list = [wiki]
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
 " Remaps
 let mapleader = " "

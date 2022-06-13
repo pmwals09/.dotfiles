@@ -119,6 +119,8 @@ alias la="ls -a"
 alias ll="ls -al"
 alias notes="nvim $NOTES_DIR"
 alias gs="git status"
+alias ta="tmux a -t"
+alias tm="task mod"
 
 # Remaps/env setting
 alias vim="nvim"
@@ -132,7 +134,7 @@ source /usr/local/opt/zsh-syntax-highlighting
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export NVM_DIR="$HOME/.nvm"
-export NOTES_DIR="$HOME/Documents/Notes"
+export NOTES_DIR="$HOME/vimwiki/index.md"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 source ~/.nvm/nvm.sh
