@@ -1,0 +1,6 @@
+#!/usr/bin/sh bash
+
+git status --porcelain | while read -r line; do
+  echo $line | xargs echo | cut -f2 -w -s | xargs npx prettier --write
+done
+

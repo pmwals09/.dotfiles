@@ -1,0 +1,43 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Patrick Walsh
+	email = patrick@fastforward.sh
+# Please adapt and uncomment the following lines:
+#	name = Patrick Walsh
+#	email = patrickwalsh@MacBook-Pro-2.local
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[core]
+	# pager = delta
+	excludesfile = /Users/patrickwalsh/.gitignore_global
+
+# [delta]
+	# plus-style = "syntax #012800"
+  # minus-style = "syntax #340001"
+  # syntax-theme = Monokai Extended
+  # navigate = true
+  # line-numbers = true
+  # side-by-side = true
+
+[interactive]
+	# diffFilter = delta --color-only
+
+[diff]
+	colorMoved = default
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/patrickwalsh/.stCommitMsg
+	verbose = true
+[init]
+	defaultBranch = main
+[commmit]
+	verbose = true

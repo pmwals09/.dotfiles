@@ -124,8 +124,11 @@ alias tm="task mod"
 
 # Remaps/env setting
 alias vim="nvim"
+alias vw="vim -c VimwikiIndex"
 # alias tmux="TERM=screen-256color tmux"
 
+# Shortcut to run project-level node_module from command line
+alias nx="$(git rev-parse --show-toplevel)/node_modules/.bin/"
 # source /usr/local/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
 source /usr/local/opt/zsh-syntax-highlighting 
