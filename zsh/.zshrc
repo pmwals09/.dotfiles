@@ -129,6 +129,7 @@ alias vw="vim -c VimwikiIndex"
 
 # Shortcut to run project-level node_module from command line
 alias nx="$(git rev-parse --show-toplevel)/node_modules/.bin/"
+alias g="git"
 # source /usr/local/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
 source /usr/local/opt/zsh-syntax-highlighting 
