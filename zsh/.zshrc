@@ -156,4 +156,3 @@ fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
-export RBENV_VERSION=3.1.1
