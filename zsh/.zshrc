@@ -128,7 +128,6 @@ alias vw="vim -c VimwikiIndex"
 # alias tmux="TERM=screen-256color tmux"
 
 # Shortcut to run project-level node_module from command line
-alias nx="$(git rev-parse --show-toplevel)/node_modules/.bin/"
 alias g="git"
 # source /usr/local/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
@@ -149,7 +148,7 @@ echo "export PATH=$HOME/Library/Android/sdk/platform-tools:\$PATH" >> ~/`[[ $SHE
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PYENV_ROOT="$HOME"/.pyenv
 export PATH="$PYENV_ROOT"/bin:"$PATH"
-export PATH="$PATH:/path/to/elixir/bin"
+# export PATH="$PATH:/path/to/elixir/bin"
 eval "$(pyenv init -)"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
