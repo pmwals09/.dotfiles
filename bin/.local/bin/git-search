@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+git status --porcelain | while read -r line; do
+echo $line | cut -f2 -w | xargs rg -C 2 --with-filename $1
+done

@@ -77,7 +77,7 @@ POWERLEVEL9K_MODE="awesome-patched"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions fzf)
+plugins=(git zsh-autosuggestions fzf brew macos npm node)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,7 +128,7 @@ alias vw="vim -c VimwikiIndex"
 # alias tmux="TERM=screen-256color tmux"
 
 # Shortcut to run project-level node_module from command line
-alias nx="$(git rev-parse --show-toplevel)/node_modules/.bin/"
+# alias nx="$(git rev-parse --show-toplevel)/node_modules/.bin/"
 alias g="git"
 # source /usr/local/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
@@ -137,9 +137,7 @@ source /usr/local/opt/zsh-syntax-highlighting
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export NVM_DIR="$HOME/.nvm"
 export NOTES_DIR="$HOME/vimwiki/index.md"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 source ~/.nvm/nvm.sh
 [ -d "$HOME/Library/Android/sdk" ] && ANDROID_SDK=$HOME/Library/Android/sdk || ANDROID_SDK=$HOME/Android/Sdk
@@ -157,3 +155,4 @@ fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
+export LEDGER_FILE=/Users/patrickwalsh/finance/2022.journal

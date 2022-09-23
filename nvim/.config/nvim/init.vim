@@ -80,6 +80,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'coc-extensions/coc-omnisharp' " C-sharp
   Plug 'neoclide/coc-java' " Java
   " Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 " syntax highlighting/colors
