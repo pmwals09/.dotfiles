@@ -41,7 +41,7 @@ set colorcolumn=80
 set ignorecase
 set smartcase
 filetype plugin indent on " Load plugins according to detected filetype
-let g:netrw_liststyle = 3
+" let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 set termguicolors
 
@@ -51,6 +51,8 @@ set termguicolors
 
 call plug#begin('~/.vim/plugged')
   " Style
+  " Plug 'sainnhe/sonokai'
+  " Plug 'sainnhe/gruvbox-material'
   Plug 'morhetz/gruvbox'
   " Plug 'ayu-theme/ayu-vim'
   Plug 'vim-airline/vim-airline'
@@ -81,6 +83,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'L3MON4D3/LuaSnip'
   Plug 'saadparwaiz1/cmp_luasnip'
 
+  " Snippets
+  Plug 'rafamadriz/friendly-snippets'
+
   " Native LSP
   Plug 'neovim/nvim-lspconfig'
 
@@ -107,6 +112,9 @@ call plug#begin('~/.vim/plugged')
 
   " Notes
   Plug 'vimwiki/vimwiki'
+
+  " Lisp
+  Plug 'vlime/vlime', {'rtp': 'vim/'}
 
   " Misc attempts
   " Plug 'dense-analysis/ale' " linting
@@ -135,7 +143,6 @@ call plug#begin('~/.vim/plugged')
   " Plug 'coc-extensions/coc-omnisharp' " C-sharp
   " Plug 'neoclide/coc-java' " Java
   " Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
-  Plug 'vlime/vlime', {'rtp': 'vim/'}
 call plug#end()
 
 " =====
@@ -143,6 +150,7 @@ call plug#end()
 " =====
 " let ayucolor="dark"
 " colorscheme ayu
+" autocmd vimenter * ++nested colorscheme gruvbox-material
 autocmd vimenter * ++nested colorscheme gruvbox
 " colorscheme gruvbox
 
@@ -172,7 +180,6 @@ nnoremap <C-k> :cprev<CR>
 
 " Copy and paste is hard
 vnoremap <leader>p "_dP
-vnoremap <leader>y "*y
 nnoremap <leader>y "*y
 nnoremap <leader>Y gg"+yG
 
