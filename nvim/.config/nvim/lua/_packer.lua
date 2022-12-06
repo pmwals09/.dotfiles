@@ -3,7 +3,9 @@ local ensure_packer = function()
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    vim.cmd([[
+      packadd packer.nvim
+    ]])
     return true
   end
   return false
@@ -24,6 +26,7 @@ return require("packer").startup(function(use)
 
   -- Treesitter
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use("romgrk/nvim-treesitter-context")
 
   -- Markdown preview
   use('ellisonleao/glow.nvim')
@@ -50,6 +53,7 @@ return require("packer").startup(function(use)
 
   -- Native LSP
   use('neovim/nvim-lspconfig')
+  use('onsails/lspkind.nvim')
 
   -- Debugging
   use('mfussenegger/nvim-dap')
@@ -71,9 +75,10 @@ return require("packer").startup(function(use)
   use('townk/vim-autoclose')
   use('folke/todo-comments.nvim')
   use('dhruvasagar/vim-table-mode')
+  use('mbbill/undotree')
 
   -- Notes
-  use{ 
+  use{
     'vimwiki/vimwiki',
     config = function()
       vim.g.vimwiki_list = {
