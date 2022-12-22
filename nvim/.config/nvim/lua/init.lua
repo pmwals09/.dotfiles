@@ -7,6 +7,8 @@ require("_keymaps")
 require("_lualine")
 require("_fzf")
 require("_treesitter")
+require("_vimwiki")
+require("_harpoon")
 
 -- LSP
 require("_lsp")

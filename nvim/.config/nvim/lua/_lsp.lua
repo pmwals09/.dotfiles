@@ -2,6 +2,8 @@
 -- Native LSP
 -- ==========
 
+require("nvim-lsp-installer").setup {}
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require 'lspconfig'
 require('vim.lsp.protocol')
@@ -30,7 +32,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'H', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<C-i>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wl', function()
@@ -43,7 +45,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
   vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, bufopts)
   vim.diagnostic.config({
-    virtual_text = {
+    virtual_text = true,
+    --[[virtual_text = {
       format = function(diagnostic)
         if diagnostic.severity == vim.diagnostic.severity.ERROR then
           return "ERROR"
@@ -54,6 +57,7 @@ local on_attach = function(client, bufnr)
         return diagnostic.message
       end
     },
+    ]]--
     signs = true,
     underline = true,
     update_in_insert = true,

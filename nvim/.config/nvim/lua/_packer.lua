@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd([[
       packadd packer.nvim
     ]])
@@ -52,6 +52,7 @@ return require("packer").startup(function(use)
   use('rafamadriz/friendly-snippets')
 
   -- Native LSP
+  use('williamboman/nvim-lsp-installer')
   use('neovim/nvim-lspconfig')
   use('onsails/lspkind.nvim')
 
@@ -64,7 +65,7 @@ return require("packer").startup(function(use)
   -- FZF FTW
   use('junegunn/fzf', { run = ":call fzf#install()" })
   use('junegunn/fzf.vim')
-  use('yuki-yano/fzf-preview.vim', {branch = 'release/rpc'})
+  use('yuki-yano/fzf-preview.vim', { branch = 'release/rpc' })
 
   -- Git
   use('tpope/vim-fugitive')
@@ -73,31 +74,26 @@ return require("packer").startup(function(use)
   -- Ergonomics
   use('tpope/vim-surround')
   use('townk/vim-autoclose')
-  use('folke/todo-comments.nvim')
-  use('dhruvasagar/vim-table-mode')
-  use('mbbill/undotree')
-
-  -- Notes
-  use{
-    'vimwiki/vimwiki',
+  use {
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
     config = function()
-      vim.g.vimwiki_list = {
-        {
-          path = '~/vimwiki/',
-          syntax = 'markdown',
-          ext = '.md'
-        }
-      }
-      vim.g.vimwiki_ext2syntax = {
-        ['.md'] = 'markdown',
-        ['.markdown'] = 'markdown',
-        ['.mdown'] = 'markdown',
+      require("todo-comments").setup {
       }
     end
   }
+  use('dhruvasagar/vim-table-mode')
+  use('mbbill/undotree')
+  use {
+    'ThePrimeagen/harpoon',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
+
+  -- Notes
+  use('vimwiki/vimwiki')
 
   -- Lisp
-  use('vlime/vlime', {rtp = 'vim/'})
+  use('vlime/vlime', { rtp = 'vim/' })
 
   -- Bootstrap if needed - after all plugins:
   if packer_bootstrap then

@@ -20,7 +20,7 @@ map('v', 'K', ":m '<-2<CR>gv=gv")
 map('n', '<C-F>', 'gg=G')
 
 -- Config quick source
-map('n', '<leader><CR>', ':so ~/.config/nvim/init.vim<CR>')
+map('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>')
 
 -- quicklist navigation
 map('n', '<C-j>', ':cnext<CR>')
