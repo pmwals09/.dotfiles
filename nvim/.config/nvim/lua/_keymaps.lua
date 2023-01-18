@@ -11,8 +11,6 @@ vim.g.mapleader = ' '
 -- File navigation
 map('n', '<leader>pv', ':Vex<CR>')
 map('n', '<leader>pe', ':Ex<CR>')
-map('n', '<C-p>', ':GFiles<CR>')
-map('n', '<leader>pf', ':Files<CR>')
 
 -- In-file navigation
 map('v', 'J', ":m '>+1<CR>gv=gv")

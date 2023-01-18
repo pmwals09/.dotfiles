@@ -87,6 +87,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
   vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, bufopts)
   vim.keymap.set('n', '<leader>ls', vim.lsp.buf.document_symbol, bufopts)
+  vim.keymap.set('n', '<leader>lqf', vim.diagnostic.setloclist, bufopts)
   vim.diagnostic.config({
     virtual_text = true,
     --[[virtual_text = {

@@ -87,9 +87,14 @@ return require("packer").startup(function(use)
   use('theHamsta/nvim-dap-virtual-text')
 
   -- FZF FTW
-  use('junegunn/fzf', { run = ":call fzf#install()" })
+  use { 'ibhagwan/fzf-lua',
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
+  --[[
+  --use('junegunn/fzf', { run = ":call fzf#install()" })
   use('junegunn/fzf.vim')
   use('yuki-yano/fzf-preview.vim', { branch = 'release/rpc' })
+  ]]--
 
   -- Git
   use('tpope/vim-fugitive')
