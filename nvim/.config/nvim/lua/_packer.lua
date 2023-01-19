@@ -76,6 +76,11 @@ return require("packer").startup(function(use)
       {'rafamadriz/friendly-snippets'},
     }
   }
+  use {
+    "folke/trouble.nvim",
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  }
+  use { 'kyazdani42/nvim-web-devicons' }
   -- Snippets
   use('rafamadriz/friendly-snippets')
 
@@ -91,7 +96,7 @@ return require("packer").startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
   --[[
-  --use('junegunn/fzf', { run = ":call fzf#install()" })
+  use('junegunn/fzf', { run = ":call fzf#install()" })
   use('junegunn/fzf.vim')
   use('yuki-yano/fzf-preview.vim', { branch = 'release/rpc' })
   ]]--
