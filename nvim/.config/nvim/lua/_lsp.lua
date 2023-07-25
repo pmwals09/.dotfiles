@@ -8,7 +8,7 @@ lsp.preset('recommended')
 lsp.ensure_installed({
   'tsserver',
   'eslint',
-  'sumneko_lua',
+  'lua_ls',
   'rust_analyzer',
   'intelephense',
 })
@@ -89,6 +89,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>ls', vim.lsp.buf.document_symbol, bufopts)
   vim.keymap.set('n', '<leader>lqf', vim.diagnostic.setloclist, bufopts)
   vim.keymap.set('n', '<leader>lds', require('fzf-lua').lsp_document_symbols, bufopts)
+  vim.keymap.set('n', '<leader>lr', '<Cmd>LspRestart<CR>', bufopts)
   vim.diagnostic.config({
     virtual_text = true,
     --[[virtual_text = {
@@ -183,7 +184,7 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -292,8 +293,8 @@ vim.cmd [[
 
 vim.cmd [[
   augroup ReactFiletypes
-    autocmd!
-    autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
-    autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
+  autocmd!
+  autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
+  autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
   augroup END
 ]]

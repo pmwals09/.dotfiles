@@ -18,7 +18,8 @@ return require("packer").startup(function(use)
 
   -- Style
   -- use 'folke/tokyonight.nvim'
-  use('morhetz/gruvbox')
+  -- use('morhetz/gruvbox')
+  use('sainnhe/sonokai')
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -86,10 +87,20 @@ return require("packer").startup(function(use)
 
 
   -- Debugging
-  use('mfussenegger/nvim-dap')
-  use('Pocco81/DAPInstall.nvim')
-  use('rcarriga/nvim-dap-ui')
-  use('theHamsta/nvim-dap-virtual-text')
+  use {
+    'mfussenegger/nvim-dap',
+    requires = {
+      'leoluz/nvim-dap-go',
+      'rcarriga/nvim-dap-ui',
+      'theHamsta/nvim-dap-virtual-text',
+      {
+        'microsoft/vscode-js-debug',
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+      },
+      'mxsdev/nvim-dap-vscode-js'
+    }
+  }
+
 
   -- FZF FTW
   use { 'ibhagwan/fzf-lua',

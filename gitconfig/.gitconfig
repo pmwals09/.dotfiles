@@ -73,3 +73,5 @@
 
 [alias]
 
+[rerere]
+	enabled = true

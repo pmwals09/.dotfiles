@@ -9,3 +9,4 @@ require('fzf-lua').setup{
 map('n', '<C-p>', "<cmd>lua require('fzf-lua').git_files()<CR>")
 map('n', '<leader>pf', "<cmd>lua require('fzf-lua').files()<CR>")
 map('n', '<leader>lds', "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>")
+map('n', '<leader>rg', "<cmd>lua require('fzf-lua').grep_project()<CR>")

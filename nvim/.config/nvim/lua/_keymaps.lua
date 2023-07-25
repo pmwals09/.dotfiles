@@ -31,8 +31,11 @@ map('n', '<leader>Y', 'gg"+yG')
 
 -- fugitive HOT ROUTE
 map('n', '<leader>gs', ':G<CR>')
+map('n', '<leader>gd', ':Gdiff<CR>')
+map('n', '<leader>gmc', ':Gdiffsplit!<CR>')
 
 -- Windows
 map('n', 'ff', ':resize 100 <CR> <BAR> :vertical resize 220<CR>')
 map('n', 'fm', '<C-w>=')
 
+map('n', '<leader>bd', ':wa <BAR> :%bd <BAR> e# <BAR> bd#<CR>')

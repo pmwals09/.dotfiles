@@ -42,8 +42,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Custom script sources
-export PATH=$PATH:$HOME/.local/bin:$HOME/.nvm/versions/node/v16.13.2/lib
+export GOPATH="$HOME/go"
+# Custom script sources, go binary
+export PATH=$PATH:$HOME/.local/bin:$HOME/.nvm/versions/node/v16.13.2/lib:/usr/local/go/bin:/$HOME/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/patrickwalsh/.oh-my-zsh"
@@ -79,6 +80,7 @@ alias notes="nvim $NOTES_DIR"
 alias gs="git status"
 alias ta="tmux a -t"
 alias tm="task mod"
+alias cg="codegen"
 
 # Remaps/env setting
 alias vim="nvim"
