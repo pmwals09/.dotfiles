@@ -9,6 +9,8 @@ vim.opt.expandtab = true -- expand tabs into spaces
 vim.opt.autoread = true
 vim.opt.nu = true
 vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.scrolloff = 8 -- file will scroll to follow cursor
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.number = true -- add line numbers to buffer
@@ -35,4 +37,4 @@ vim.opt.smartcase = true
 -- filetype plugin indent on " Load plugins according to detected filetype
 vim.g.netrw_banner = 0
 vim.opt.termguicolors = true
-
+vim.opt.foldlevelstart = 99

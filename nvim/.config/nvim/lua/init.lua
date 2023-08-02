@@ -9,6 +9,7 @@ require("_fzf")
 require("_treesitter")
 require("_vimwiki")
 require("_harpoon")
+require("_gitsigns")
 
 -- LSP
 require("_lsp")

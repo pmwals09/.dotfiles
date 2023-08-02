@@ -41,21 +41,6 @@ return require("packer").startup(function(use)
   use('maxmellon/vim-jsx-pretty')
   use('mattn/emmet-vim')
 
-  --[[ 
-  -- Native LSP
-  use('williamboman/nvim-lsp-installer')
-  use('neovim/nvim-lspconfig')
-  use('onsails/lspkind.nvim')
-
-  -- LSP Autocomplete
-  use('hrsh7th/nvim-cmp')
-  use('hrsh7th/cmp-nvim-lsp')
-  use('hrsh7th/cmp-buffer')
-  use('hrsh7th/cmp-path')
-  use('L3MON4D3/LuaSnip')
-  use('saadparwaiz1/cmp_luasnip')
-  --]]
-
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -101,20 +86,14 @@ return require("packer").startup(function(use)
     }
   }
 
-
   -- FZF FTW
   use { 'ibhagwan/fzf-lua',
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
-  --[[
-  use('junegunn/fzf', { run = ":call fzf#install()" })
-  use('junegunn/fzf.vim')
-  use('yuki-yano/fzf-preview.vim', { branch = 'release/rpc' })
-  ]]--
 
   -- Git
   use('tpope/vim-fugitive')
-  use('airblade/vim-gitgutter')
+  use('lewis6991/gitsigns.nvim')
 
   -- Ergonomics
   use('tpope/vim-surround')
