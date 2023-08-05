@@ -15,7 +15,7 @@ lsp.ensure_installed({
 
 local luasnip = require 'luasnip'
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
+-- local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
   ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -30,7 +30,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
       cmp.select_next_item()
     elseif luasnip.expand_or_jumpable() then
       luasnip.expand_or_jump()
-    elseif has_words_before() then
+    elseif luasnip.has_words_before() then
       cmp.complete()
     else
       fallback()
@@ -113,15 +113,23 @@ end
 
 lsp.on_attach(on_attach)
 
+local lspconfig = require 'lspconfig'
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = { version = 'LuaJIT' },
+      diagnostics = { globals = { 'vim' } },
+      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+      telemetry = { enable = false }
+    }
+  }
+}
+
 lsp.setup()
-
-
 
 --[[
 require("nvim-lsp-installer").setup {}
-
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local lspconfig = require 'lspconfig'
 require('vim.lsp.protocol')
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

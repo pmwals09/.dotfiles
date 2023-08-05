@@ -109,7 +109,7 @@ return require("packer").startup(function(use)
   use('dhruvasagar/vim-table-mode')
   use('mbbill/undotree')
   use {
-    'ThePrimeagen/harpoon',
+    'pmwals09/harpoon',
     requires = { 'nvim-lua/plenary.nvim' }
   }
 

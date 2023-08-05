@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["DAPInstall.nvim"] = {
-    loaded = true,
-    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/DAPInstall.nvim",
-    url = "https://github.com/Pocco81/DAPInstall.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -119,35 +114,25 @@ _G.packer_plugins = {
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  fzf = {
+  ["fzf-lua"] = {
     loaded = true,
-    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/fzf",
-    url = "https://github.com/junegunn/fzf"
+    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
   },
-  ["fzf-preview.vim"] = {
+  ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/fzf-preview.vim",
-    url = "https://github.com/yuki-yano/fzf-preview.vim"
-  },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/fzf.vim",
-    url = "https://github.com/junegunn/fzf.vim"
+    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["glow.nvim"] = {
     loaded = true,
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/glow.nvim",
     url = "https://github.com/ellisonleao/glow.nvim"
   },
-  gruvbox = {
-    loaded = true,
-    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/morhetz/gruvbox"
-  },
   harpoon = {
     loaded = true,
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
+    url = "/Users/patrickwalsh/Documents/Code/harpoon"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -179,6 +164,11 @@ _G.packer_plugins = {
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
   },
+  ["nvim-dap-go"] = {
+    loaded = true,
+    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
+    url = "https://github.com/leoluz/nvim-dap-go"
+  },
   ["nvim-dap-ui"] = {
     loaded = true,
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
@@ -188,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
     url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
+  ["nvim-dap-vscode-js"] = {
+    loaded = true,
+    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/nvim-dap-vscode-js",
+    url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -205,9 +200,8 @@ _G.packer_plugins = {
     url = "https://github.com/romgrk/nvim-treesitter-context"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    loaded = true,
+    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["omnisharp-vim"] = {
@@ -225,11 +219,21 @@ _G.packer_plugins = {
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  sonokai = {
+    loaded = true,
+    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/sonokai",
+    url = "https://github.com/sainnhe/sonokai"
+  },
   ["todo-comments.nvim"] = {
     config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0" },
     loaded = true,
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["typescript-vim"] = {
     loaded = true,
@@ -250,11 +254,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
-    url = "https://github.com/airblade/vim-gitgutter"
   },
   ["vim-javascript"] = {
     loaded = true,
@@ -295,6 +294,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/vlime",
     url = "https://github.com/vlime/vlime"
+  },
+  ["vscode-js-debug"] = {
+    loaded = true,
+    path = "/Users/patrickwalsh/.local/share/nvim/site/pack/packer/start/vscode-js-debug",
+    url = "https://github.com/microsoft/vscode-js-debug"
   }
 }
 
