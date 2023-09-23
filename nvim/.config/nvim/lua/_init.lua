@@ -1,11 +1,11 @@
 require("_basics")
-require("_packer")
+require("_lazy")
 require("_style")
 require("_keymaps")
 
 -- Plugin-specific
 require("_lualine")
-require("_fzf")
+require("_telescope")
 require("_treesitter")
 require("_vimwiki")
 require("_harpoon")
