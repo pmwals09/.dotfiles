@@ -2,6 +2,12 @@
 -- Native LSP
 -- ==========
 
+-- vim.lsp.start({
+--   name = 'go-serv',
+--   cmd = { 'go-serv' },
+--   root_dir = vim.fs.dirname(vim.fs.find({'.git'}, { upward = true })[1]),
+-- })
+
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
