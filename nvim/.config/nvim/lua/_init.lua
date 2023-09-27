@@ -10,6 +10,7 @@ require("_treesitter")
 require("_vimwiki")
 require("_harpoon")
 require("_gitsigns")
+require("_comment")
 
 -- LSP
 require("_lsp")

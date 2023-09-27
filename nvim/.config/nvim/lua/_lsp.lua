@@ -9,13 +9,12 @@
 -- })
 
 local null_ls = require("null-ls")
-local cmp = require("cmp")
-local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 
 require("neodev").setup()
 
 require("mason").setup({
+  PATH = "prepend",
   ui = {
     border = "rounded",
   }

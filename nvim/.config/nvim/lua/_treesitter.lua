@@ -9,11 +9,10 @@ require('nvim-treesitter.configs').setup {
     'html',
     'javascript',
     'json',
-    'jsx',
     'lua',
     'markdown',
     'rust',
-    'tsx'
+    'tsx',
     'typescript',
     'vim',
   },
