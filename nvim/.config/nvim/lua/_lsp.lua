@@ -1,6 +1,11 @@
 -- ==========
 -- Native LSP
 -- ==========
+-- vim.lsp.start({
+--   name = 'test-server',
+--   cmd = {'go-server'},
+--   root_dir = vim.fs.dirname(vim.fs.find({'.git'}, { upward = true })[1])
+-- })
 
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
@@ -11,6 +16,7 @@ lsp.ensure_installed({
   'lua_ls',
   'rust_analyzer',
   'intelephense',
+  'gopls'
 })
 
 local luasnip = require 'luasnip'

@@ -38,3 +38,5 @@ vim.opt.smartcase = true
 vim.g.netrw_banner = 0
 vim.opt.termguicolors = true
 vim.opt.foldlevelstart = 99
+vim.opt.listchars = "eol:↵"
+vim.opt.list = true

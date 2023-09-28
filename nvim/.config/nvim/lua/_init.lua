@@ -16,3 +16,5 @@ require("_lsp")
 require("_debugging")
 -- require("_lspkind")
 
+-- require("_sourcegraph")
+
