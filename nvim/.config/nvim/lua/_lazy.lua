@@ -118,15 +118,23 @@ local plugins = {
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
-  -- Notes
-  'vimwiki/vimwiki',
-
   -- Lisp
   {
     'vlime/vlime',
     config = function(plugin)
       vim.opt.rtp:append(plugin.dir .. "/custom-rtp")
     end
+  },
+
+  -- Quicknotes
+  'pmwals09/quicknote.nvim',
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false
+  },
+  {
+    "sourcegraph/sg.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" }
   }
 }
 require("lazy").setup(plugins)

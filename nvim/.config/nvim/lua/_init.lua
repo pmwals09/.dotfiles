@@ -11,6 +11,7 @@ require("_vimwiki")
 require("_harpoon")
 require("_gitsigns")
 require("_comment")
+require("_quicknote")
 
 -- LSP
 require("_lsp")

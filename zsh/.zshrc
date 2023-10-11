@@ -57,8 +57,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-export NOTES_DIR="$HOME/vimwiki/index.md"
-export LEDGER_FILE=/Users/patrickwalsh/finance/2022.journal
+export NOTES_DIR="$HOME/notes/"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -76,11 +75,12 @@ alias vimconfig="nvim ~/.config/nvim/init.vim"
 # alias t="/usr/local/bin/todo.sh -d /Users/patrickwalsh/Nextcloud/todo/.todo.cfg"
 alias la="ls -a"
 alias ll="ls -al"
-alias notes="nvim $NOTES_DIR"
+alias notes="cd $NOTES_DIR && nvim ."
 alias gs="git status"
 alias ta="tmux a -t"
 alias tm="task mod"
 alias cg="codegen"
+alias qn="quicknote"
 
 # Remaps/env setting
 alias vim="nvim"
