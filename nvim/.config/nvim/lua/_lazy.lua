@@ -81,6 +81,7 @@ local plugins = {
       },
       'mxsdev/nvim-dap-vscode-js',
     },
+    lazy = true
   },
 
   {
@@ -88,7 +89,8 @@ local plugins = {
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
-    }
+    },
+    lazy = true
   },
   -- FZF FTW
   { 'nvim-telescope/telescope-fzf-native.nvim',
@@ -97,7 +99,9 @@ local plugins = {
   },
 
   -- Git
-  'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
+  },
   'lewis6991/gitsigns.nvim',
 
   -- Ergonomics
@@ -114,8 +118,9 @@ local plugins = {
   },
   'mbbill/undotree',
   {
-    'pmwals09/harpoon',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    -- 'pmwals09/harpoon',
+    dir = '~/Documents/Code/Personal/harpoon',
+    dependencies = { 'nvim-lua/plenary.nvim' },
   },
 
   -- Lisp
@@ -123,18 +128,25 @@ local plugins = {
     'vlime/vlime',
     config = function(plugin)
       vim.opt.rtp:append(plugin.dir .. "/custom-rtp")
-    end
+    end,
+    lazy = true
   },
 
   -- Quicknotes
   'pmwals09/quicknote.nvim',
+  'pmwals09/tsc.nvim',
   {
     "christoomey/vim-tmux-navigator",
     lazy = false
   },
   {
     "sourcegraph/sg.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" }
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
   }
 }
 require("lazy").setup(plugins)

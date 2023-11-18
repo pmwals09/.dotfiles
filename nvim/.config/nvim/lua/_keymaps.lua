@@ -11,7 +11,7 @@ vim.g.mapleader = ' '
 -- File navigation
 -- open a vertical split with file explorer in it
 map('n', '<leader>pv', ':Vex<CR>')
-map('n', '<leader>pe', ':Ex<CR>')
+map('n', '<leader>pe', ':Oil<CR>')
 
 -- In-file navigation
 -- move the visually selected text down a line

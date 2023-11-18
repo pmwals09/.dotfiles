@@ -44,7 +44,7 @@ fi
 
 export GOPATH="$HOME/go"
 # Custom script sources, go binary
-export PATH=$PATH:$HOME/.local/bin:$HOME/.nvm/versions/node/v16.13.2/lib:/usr/local/go/bin:/$HOME/go/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.nvm/versions/node/v18.17.0/lib:/usr/local/go/bin:/$HOME/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/patrickwalsh/.oh-my-zsh"
