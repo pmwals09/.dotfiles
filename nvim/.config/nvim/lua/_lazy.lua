@@ -118,9 +118,11 @@ local plugins = {
   },
   'mbbill/undotree',
   {
-    -- 'pmwals09/harpoon',
-    dir = '~/Documents/Code/Personal/harpoon',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { {"nvim-lua/plenary.nvim"} }
+  }
   },
 
   -- Lisp

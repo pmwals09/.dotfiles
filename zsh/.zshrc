@@ -102,3 +102,10 @@ compinit -C
 source /usr/local/opt/zsh-syntax-highlighting 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # zprof
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
