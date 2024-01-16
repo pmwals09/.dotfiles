@@ -136,7 +136,7 @@ local plugins = {
 
   -- Quicknotes
   'pmwals09/quicknote.nvim',
-  'pmwals09/tsc.nvim',
+  'dmmulroy/tsc.nvim',
   {
     "christoomey/vim-tmux-navigator",
     lazy = false

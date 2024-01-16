@@ -1,1 +1,3 @@
-require("sg").setup {}
+require("sg").setup {
+  on_attach = require("_lsp").on_attach
+}

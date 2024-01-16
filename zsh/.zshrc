@@ -1,55 +1,20 @@
 # zmodload zsh/zprof
 
-## ZSH-specific vars
-# disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
-
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_MODE="awesome-patched"
-# ZSH_THEME="robbyrussell"
 #
 # Disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 ## Plugins
 # Standard plugins
 # plugins=(git fzf brew macos npm node)
 
-# Hack to speed up shell init time - nvm is incredibly slow and rarely used.
-# This is like a lazy init if any nvm commands are issued while retaining
-# full functionality
-declare -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-
-NODE_GLOBALS+=("node")
-NODE_GLOBALS+=("nvm")
-
-load_nvm () {
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-}
-
-for cmd in "${NODE_GLOBALS[@]}"; do
-  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-done
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export GOPATH="$HOME/go"
 # Custom script sources, go binary
 export PATH=$PATH:$HOME/.local/bin:$HOME/.nvm/versions/node/v18.17.0/lib:/usr/local/go/bin:/$HOME/go/bin
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/patrickwalsh/.oh-my-zsh"
-
-source $ZSH/oh-my-zsh.sh
 
 ## User configuration
 ### Exports
@@ -68,11 +33,8 @@ fi
 
 ### Aliases
 alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+# alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vimconfig="nvim ~/.config/nvim/init.vim"
-
-# alias mrm="bundle exec rake db:migrate && bundle exec rake db:rollback && bundle exec rake db:migrate"
-# alias t="/usr/local/bin/todo.sh -d /Users/patrickwalsh/Nextcloud/todo/.todo.cfg"
 alias la="ls -a"
 alias ll="ls -al"
 alias notes="cd $NOTES_DIR && nvim ."
@@ -89,23 +51,9 @@ alias vw="vim -c VimwikiIndex"
 alias g="git"
 
 ## Misc. sourcing
-# speed up shell init
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 source /usr/local/opt/zsh-syntax-highlighting 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# zprof
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+eval "$(starship init zsh)"
