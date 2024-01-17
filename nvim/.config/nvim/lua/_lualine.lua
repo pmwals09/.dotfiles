@@ -1,7 +1,7 @@
-local harpoon = require("harpoon.mark")
+local harpoon = require("harpoon")
 
 local function harpoon_component()
-	local total_marks = harpoon.get_length()
+  local total_marks = harpoon:list():length()
 
 	if total_marks == 0 then
 		return ""
@@ -9,7 +9,15 @@ local function harpoon_component()
 
 	local current_mark = "—"
 
-	local mark_idx = harpoon.get_current_index()
+	local mark_idx = nil
+  local current_file_path = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+  for index = 1, total_marks do
+    local harpoon_file_path = harpoon:list():get(index).value
+    if current_file_path == harpoon_file_path then
+      mark_idx = index
+      break
+    end
+  end
 	if mark_idx ~= nil then
 		current_mark = tostring(mark_idx)
 	end
