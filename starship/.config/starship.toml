@@ -1,0 +1,90 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+# Git
+[git_status]
+untracked = ' [?$count](blue) '
+modified = ' [!$count](yellow) '
+staged = ' [+$count](green) '
+
+# Symbols
+[c]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[nodejs]
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rust]
+symbol = " "
