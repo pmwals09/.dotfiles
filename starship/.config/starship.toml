@@ -1,9 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 # Git
 [git_status]
-untracked = ' [?$count](blue) '
-modified = ' [!$count](yellow) '
-staged = ' [+$count](green) '
+# untracked = ' [?$count](blue) '
+# modified = ' [!$count](yellow) '
+# staged = ' [+$count](green) '
 
 # Symbols
 [c]
