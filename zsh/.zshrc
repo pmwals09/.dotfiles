@@ -13,7 +13,7 @@
 
 export GOPATH="$HOME/go"
 # Custom script sources, go binary
-export PATH=$PATH:$HOME/.local/bin:$HOME/.nvm/versions/node/v18.17.0/lib:/usr/local/go/bin:/$HOME/go/bin
+export PATH=$PATH:$HOME/.local/bin:/usr/local/go/bin:/$HOME/go/bin
 
 
 ## User configuration
@@ -35,6 +35,7 @@ fi
 alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias vimconfig="nvim ~/.config/nvim/init.vim"
+alias ls="lsd"
 alias la="ls -a"
 alias ll="ls -al"
 alias notes="cd $NOTES_DIR && nvim ."
@@ -56,4 +57,5 @@ source /usr/local/opt/zsh-syntax-highlighting
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+eval "$(fnm env --use-on-cd)"
 eval "$(starship init zsh)"
