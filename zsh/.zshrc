@@ -57,3 +57,9 @@ source /usr/local/opt/zsh-syntax-highlighting
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 eval "$(starship init zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/patrickwalsh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/patrickwalsh/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/patrickwalsh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/patrickwalsh/google-cloud-sdk/completion.zsh.inc'; fi
