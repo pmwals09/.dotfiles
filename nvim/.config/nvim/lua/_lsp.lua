@@ -3,9 +3,9 @@
 -- ===
 
 vim.lsp.start({
-  name = 'go-server',
-  cmd = { 'go-server' },
-  root_dir = vim.fs.dirname(vim.fs.find({'.git'}, { upward = true })[1]),
+	name = "go-server",
+	cmd = { "go-server" },
+	root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
 })
 
 require("neodev").setup()
@@ -40,10 +40,8 @@ mason_lspconfig.setup({
 	},
 })
 
-
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local default_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+capabilities = vim.tbl_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -59,22 +57,24 @@ local on_attach = function(client, bufnr)
 		buffer = bufnr,
 	}
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+	vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, bufopts)
+	vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, bufopts)
+	vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, bufopts)
+	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
+	vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, bufopts)
+	vim.keymap.set("n", "<leader>lf", function()
+		vim.lsp.buf.format({ async = true })
+	end, bufopts)
 	vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	vim.keymap.set("n", "<leader>ls", vim.lsp.buf.signature_help, bufopts)
 	vim.keymap.set("n", "<leader>lwa", vim.lsp.buf.add_workspace_folder, bufopts)
 	vim.keymap.set("n", "<leader>lwr", vim.lsp.buf.remove_workspace_folder, bufopts)
 	vim.keymap.set("n", "<leader>lwl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, bufopts)
-	vim.keymap.set("n", "<leader>ltd", vim.lsp.buf.type_definition, bufopts)
+	vim.keymap.set("n", "<leader>ltd", require("telescope.builtin").lsp_type_definitions, bufopts)
 	vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "<leader>lf", function()
-		vim.lsp.buf.format({ async = true })
-	end, bufopts)
 	vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, bufopts)
 	vim.keymap.set("n", "<leader>ls", vim.lsp.buf.document_symbol, bufopts)
 	vim.keymap.set("n", "<leader>lqf", vim.diagnostic.setloclist, bufopts)
@@ -83,7 +83,7 @@ local on_attach = function(client, bufnr)
 	vim.diagnostic.config({
 		virtual_text = true,
 		signs = true,
-		underline = true,
+		-- underline = true,
 		update_in_insert = true,
 		severity_sort = false,
 	})
@@ -93,7 +93,7 @@ mason_lspconfig.setup_handlers({
 	function(server_name)
 		require("lspconfig")[server_name].setup({
 			on_attach = on_attach,
-			capabilities = default_capabilities,
+			capabilities = capabilities,
 		})
 	end,
 })
@@ -200,5 +200,5 @@ cmp.setup({
 })
 
 return {
-  on_attach = on_attach
+	on_attach = on_attach,
 }

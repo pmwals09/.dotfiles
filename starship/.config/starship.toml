@@ -1,4 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+
+[character]
+success_symbol = '[󰘧](bold green)'
+error_symbol = '[󰘧](bold red)'
+
 # Git
 [git_status]
 # untracked = ' [?$count](blue) '
@@ -16,7 +21,7 @@ read_only = " 󰌾"
 symbol = " "
 
 [git_branch]
-symbol = " "
+symbol = " "
 
 [golang]
 symbol = " "
